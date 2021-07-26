@@ -4,12 +4,26 @@ public class Centro {
 
         // Atributos
         private String nombre;
+        private boolean operativo;
+        private int TotalCompletas;
+        private int TotalParciales;
         // Métodos
-        Centro()
-        {
-            // constructor por def (estos comments son para que no salga code smell en sonar)
+
+        Centro(String nombre,int vacunasParciales, int vacunasCompletas, boolean operativo) {
+                this.operativo = operativo;
+                this.TotalParciales = vacunasParciales;
+                this.TotalCompletas = vacunasCompletas;
         }
         // setters
+
+        public void Bajarlo() {
+                operativo = false;
+        }
+
+        public void Subirlo() {
+                operativo = true;
+        }
+
         public void setNombre(String nombre)
         {
             this.nombre = nombre;
@@ -18,6 +32,14 @@ public class Centro {
         public String getNombre()
         {
             return nombre;
+        }
+
+        public int getVacunasCompletas() {
+                return TotalCompletas;
+        }
+
+        public int getVacunasParciales() {
+                return TotalParciales;
         }
 
 

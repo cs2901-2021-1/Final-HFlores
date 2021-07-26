@@ -1,57 +1,32 @@
 package examen;
 
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
-public class Application {
+public class Main {
 
-    private List<Centro> CentrosList;
+    public static void main (String[] args) {
 
-    private static Application instance = null;
-    //Constructor
-    private Application(){
+            Scanner myObj = new Scanner(System.in);
+            System.out.println("Ingrese su Usuario");
 
-        CentrosList = new ArrayList<>();
-    }
-    //Para Singleton
-    public static Application getInstance()
-    {
-        if (instance == null)
-        {
-            synchronized(Application.class)
-            {
-                instance = new Application();
+            String userName = myObj.nextLine();
+
+            Scanner myObj2 = new Scanner(System.in);
+            System.out.println("Ingrese su Contraseña");
+
+            String password = myObj2.nextLine();
+
+            if (ValidarPassword(userName, password)){
+                System.out.println("Sesion Iniciada!");
+
             }
-        }
-        return instance;
-    }
 
-    public static void Login(){
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("Ingrese su Usuario");
+            else {
+                System.out.println("Contraseña Incorrecta");
 
-        String userName = myObj.nextLine();
+            }
 
-        Scanner myObj2 = new Scanner(System.in);
-        System.out.println("Ingrese su Contraseña");
-
-        String password = myObj2.nextLine();
-
-        if (ValidarPassword(userName, password)){
-            System.out.println("Sesion Iniciada!");
-
-            Menu();
-        }
-
-        else {
-            System.out.println("Contraseña Incorrecta");
-            Login();
-        }
-    }
-
-        public static void Menu(){
 
             System.out.println("Bienvenido");
             System.out.println("-------------------------------------------------");
@@ -73,7 +48,7 @@ public class Application {
             switch (operacion)
             {
                 case 1:{} ;
-                    break;
+                break;
                 case 2:  ;
                     break;
                 case 3:{
@@ -97,7 +72,7 @@ public class Application {
 
 
                 }  ;
-                    break;
+                break;
                 case 4:  ;
                     break;
                 case 5:  ;
@@ -106,9 +81,8 @@ public class Application {
                     break;
                 case 0:  {
                     System.out.println("Cerrando Sesion");
-                    Login();
                 }
-                    break;
+                break;
             }
 
 
@@ -148,10 +122,8 @@ public class Application {
                     Scanner myObj4 = new Scanner(System.in);
                     String rpta = myObj4.nextLine();
 
-                    Centro centro = new Centro();
-                    centro.setNombre(rpta);
+                    Centro centro = new Centro(rpta,0,0,true);
 
-                    CentrosList.add(centro);
 
                 } ;
                 break;
@@ -162,8 +134,9 @@ public class Application {
                     Scanner myObj4 = new Scanner(System.in);
                     String rpta = myObj4.nextLine();
 
-                    Centro centro = new Centro();
-                    CentrosList.remove(centro);
+                    Centro centro = new Centro(rpta,0,0,true);
+
+                    centro.Bajarlo();
 
 
                 }  ;
@@ -171,18 +144,5 @@ public class Application {
             }
 
         };
-
-        private int getLista(){
-
-            return CentrosList.size();
-
-        }
-
-
-
-    public static void main(String[] args) {
-
-    Login();
-    }
 
 }
