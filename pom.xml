@@ -4,12 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>cs2901</groupId>
-    <artifactId>e1-sec01-examen-final-HarlopFlores</artifactId>
+    <artifactId>Final-HFlores</artifactId>
     <version>0.1</version>
     <properties>
+        <sonar.projectKey>cs2901-2021-1_Final-HFlores</sonar.projectKey>
+        <sonar.organization>cs2901-2021-1</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
